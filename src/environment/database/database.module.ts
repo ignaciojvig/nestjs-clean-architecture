@@ -1,14 +1,17 @@
+import { Series } from '@domain/series.entity';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { getConnectionOptions } from 'typeorm';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type: 'sqlite',
-      database: 'series-db.sqlite3',
-      entities: ['@domain/**/*.entity.ts'],
-      migrations: ["@domain/**.*.entity.ts"]
+    TypeOrmModule.forRootAsync({
+      useFactory: async () => {
+        return Object.assign(
+          await getConnectionOptions()
+        );
+      }
     })
   ]
 })
-export class DatabaseModule {}
+export class DatabaseModule { }

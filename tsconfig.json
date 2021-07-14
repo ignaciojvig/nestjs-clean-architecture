@@ -11,9 +11,18 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@services/*": ["src/api/1 - Services/*"],
-      "@domain/*": ["src/api/2 - Domain/*"],
-      "@infrastructure/*": ["src/api/3 - Infrastructure/*"],
+      "@root/*": [
+        "./*"
+      ],
+      "@services/*": [
+        "src/api/1 - Services/*"
+      ],
+      "@domain/*": [
+        "src/api/2 - Domain/*"
+      ],
+      "@infrastructure/*": [
+        "src/api/3 - Infrastructure/*"
+      ],
     },
     "incremental": true
   }
