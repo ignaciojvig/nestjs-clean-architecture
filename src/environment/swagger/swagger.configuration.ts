@@ -1,7 +1,7 @@
-import { INestApplication } from '@nestjs/common';
+import { INestApplication, Logger } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
-export const setupSwagger = (nestApp: INestApplication) => {
+export const setupSwagger = (nestApp: INestApplication, logger: Logger) => {
   const config = new DocumentBuilder()
     .setTitle('Series API')
     .setDescription('The Series API Documentation')
@@ -9,6 +9,13 @@ export const setupSwagger = (nestApp: INestApplication) => {
     .addTag('Series')
     .build();
 
+  const swaggerPath = '/api';
+
   const swaggerDocument = SwaggerModule.createDocument(nestApp, config);
-  SwaggerModule.setup('api', nestApp, swaggerDocument);
+  SwaggerModule.setup(swaggerPath, nestApp, swaggerDocument);
+
+  logger.log(
+    `Nest application OpenAPI Swagger UI on: ${swaggerPath}`,
+    'Swagger',
+  );
 };
