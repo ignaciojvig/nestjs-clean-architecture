@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
-import { ControllersModule } from 'src/api/0 - Presentation/controllers.module';
+import { PresentationModule } from 'src/api/0 - Presentation/presentation.module';
 import { DatabaseModule } from 'src/environment/database/database.module';
 
 @Module({
-  imports: [ControllersModule, DatabaseModule],
+  imports: [PresentationModule, DatabaseModule],
   controllers: [],
   providers: [],
 })

@@ -4,6 +4,6 @@ import { SeriesController } from './series.controller';
 
 @Module({
   imports: [ServicesModule],
-  controllers: [SeriesController]
+  controllers: [SeriesController],
 })
-export class ControllersModule { }
+export class PresentationModule {}
