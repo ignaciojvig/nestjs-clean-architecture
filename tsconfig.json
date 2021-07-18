@@ -21,6 +21,7 @@
         "src/api/3 - Infrastructure/*"
       ],
     },
-    "incremental": true
+    "incremental": true,
+    "skipLibCheck": true
   }
 }

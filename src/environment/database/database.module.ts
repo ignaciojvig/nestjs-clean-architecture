@@ -9,6 +9,7 @@ import { getConnectionOptions } from 'typeorm';
       useFactory: async () => {
         return Object.assign(await getConnectionOptions(), {
           autoLoadEntities: true,
+          migrations: [],
         });
       },
     }),
