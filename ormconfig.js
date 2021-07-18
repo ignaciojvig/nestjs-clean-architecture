@@ -1,9 +1,9 @@
 module.exports = {
   type: 'better-sqlite3',
   database: 'series-db.sqlite3',
-  entities: ['**/*.entity.ts'],
-  migrations: ["src/environment/database/migration/*.ts"],
+  entities: ['dist/**/*.entity.{ts,js}'],
+  migrations: ['src/environment/database/migration/*.{ts,js}'],
   cli: {
-    "migrationsDir": "src/environment/database/migration"
-  }
-}
+    migrationsDir: 'src/environment/database/migration',
+  },
+};

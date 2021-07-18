@@ -7,11 +7,12 @@ import { getConnectionOptions } from 'typeorm';
   imports: [
     TypeOrmModule.forRootAsync({
       useFactory: async () => {
-        return Object.assign(
-          await getConnectionOptions()
-        );
-      }
-    })
-  ]
+        return Object.assign(await getConnectionOptions(), {
+          autoLoadEntities: true,
+        });
+      },
+    }),
+  ],
+  exports: [TypeOrmModule],
 })
-export class DatabaseModule { }
+export class DatabaseModule {}

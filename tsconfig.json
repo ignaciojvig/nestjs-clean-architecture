@@ -11,9 +11,6 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@root/*": [
-        "./*"
-      ],
       "@services/*": [
         "src/api/1 - Services/*"
       ],
