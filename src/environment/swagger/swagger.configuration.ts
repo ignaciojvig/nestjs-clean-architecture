@@ -6,7 +6,6 @@ export const setupSwagger = (nestApp: INestApplication, logger: Logger) => {
     .setTitle('Series API')
     .setDescription('The Series API Documentation')
     .setVersion('1.0')
-    .addTag('Series')
     .build();
 
   const swaggerPath = '/api';

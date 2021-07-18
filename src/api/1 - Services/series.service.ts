@@ -15,7 +15,7 @@ export class SeriesService {
   }
 
   async createSeries(newSeries: Series): Promise<Series> {
-    return await this.seriesRepository.create(newSeries);
+    return await this.seriesRepository.save(newSeries);
   }
 
   async updateSeries(seriesToUpdated: Series): Promise<Series> {

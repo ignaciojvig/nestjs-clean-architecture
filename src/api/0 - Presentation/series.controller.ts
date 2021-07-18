@@ -8,8 +8,10 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 import { SeriesService } from '@services/series.service';
 
+@ApiTags('Series')
 @Controller('series')
 export class SeriesController {
   constructor(private seriesService: SeriesService) {}
