@@ -1,4 +1,4 @@
-import { Series } from '@domain/series.entity';
+import { Series } from '@domain/entities/series.entity';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getConnectionOptions } from 'typeorm';
