@@ -20,6 +20,9 @@
       "@domain/*": [
         "src/api/2 - Domain/*"
       ],
+      "@core/*": [
+        "src/api/3 - Core/*"
+      ],
     },
     "incremental": true,
     "skipLibCheck": true

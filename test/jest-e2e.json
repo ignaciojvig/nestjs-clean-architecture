@@ -10,6 +10,7 @@
   "moduleNameMapper": {
     "@presentation/(.*)": "<rootDir>src/api/0 - Presentation/$1",
     "@services/(.*)": "<rootDir>src/api/1 - Services/$1",
-    "@domain/(.*)": "<rootDir>src/api/2 - Domain/$1"
+    "@domain/(.*)": "<rootDir>src/api/2 - Domain/$1",
+    "@core/(.*)": "<rootDir>src/api/3 - Core/$1"
   }
 }

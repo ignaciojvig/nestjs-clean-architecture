@@ -1,3 +1,4 @@
+import { DependencyInjectionTokens } from '@core/IoC Crosscutting/di.tokens';
 import { Series } from '@domain/entities/series.entity';
 import { INestApplication, ValidationPipe } from '@nestjs/common';
 import { Test } from '@nestjs/testing';
@@ -5,7 +6,7 @@ import { getRepositoryToken, TypeOrmModule } from '@nestjs/typeorm';
 import { SeriesController } from '@presentation/Controllers/series.controller';
 import { SeriesCreateAndEditViewModel } from '@presentation/View Models/Series View Models/seriesCreateAndEdit.viewmodel';
 import { SeriesListViewModel } from '@presentation/View Models/Series View Models/seriesList.viewmodel';
-import { SeriesService } from '@services/series.service';
+import { SeriesService } from '@services/SeriesService/series.service';
 import * as request from 'supertest';
 import { Repository } from 'typeorm';
 
@@ -52,7 +53,10 @@ describe('Series', () => {
     const moduleRef = await Test.createTestingModule({
       controllers: [SeriesController],
       providers: [
-        SeriesService,
+        {
+          provide: DependencyInjectionTokens.ISeriesInterface,
+          useClass: SeriesService,
+        },
         {
           provide: getRepositoryToken(Series),
           useFactory: () => mockedSeriesRepository,

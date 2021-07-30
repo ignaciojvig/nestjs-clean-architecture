@@ -1,10 +1,11 @@
 import { Series } from '@domain/entities/series.entity';
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { ISeriesService } from '@services/SeriesService/iseries.service';
 import { Repository } from 'typeorm';
 
 @Injectable()
-export class SeriesService {
+export class SeriesService implements ISeriesService {
   constructor(
     @InjectRepository(Series)
     private seriesRepository: Repository<Series>,

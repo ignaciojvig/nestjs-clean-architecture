@@ -1,9 +1,11 @@
+import { DependencyInjectionTokens } from '@core/IoC Crosscutting/di.tokens';
 import { Series } from '@domain/entities/series.entity';
 import {
   Body,
   Controller,
   Delete,
   Get,
+  Inject,
   Param,
   Post,
   Put,
@@ -11,12 +13,15 @@ import {
 import { ApiTags } from '@nestjs/swagger';
 import { SeriesCreateAndEditViewModel } from '@presentation/View Models/Series View Models/seriesCreateAndEdit.viewmodel';
 import { SeriesListViewModel } from '@presentation/View Models/Series View Models/seriesList.viewmodel';
-import { SeriesService } from '@services/series.service';
+import { ISeriesService } from '@services/SeriesService/iseries.service';
 
 @ApiTags('Series')
 @Controller('series')
 export class SeriesController {
-  constructor(private seriesService: SeriesService) {}
+  constructor(
+    @Inject(DependencyInjectionTokens.ISeriesInterface)
+    private seriesService: ISeriesService,
+  ) {}
 
   @Get()
   async getAllSeries(): Promise<SeriesListViewModel[]> {
